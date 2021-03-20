@@ -17,8 +17,15 @@ var points = {
 var levelcounter = 1;
 
 // Build Background //
-
-// maybe do it in html? since it can be done with an image tag pretty easy? idk
+draw();
+function draw() {
+  var c = getElementById("mainGame");
+  c.style.width='100%';
+  c.style.height='100%';
+  c.width  = c.offsetWidth;
+  c.height = c.offsetHeight;
+  // you try the rest XD
+}
 
 // Build Level //
 function randomizelevel() {

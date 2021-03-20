@@ -15,49 +15,54 @@ var points = {
     pt8: 0,
 }
 var levelcounter = 1;
+var max = 10
+var min = 0
+function random(min, max, pt) {
+	pt = (Math.random() * (max - min) + min);
+}
 
 // Build Background //
-draw();
 function draw() {
   var c = getElementById("mainGame");
-  c.style.width='100%';
-  c.style.height='100%';
-  c.width  = c.offsetWidth;
-  c.height = c.offsetHeight;
+  var d = getElementById("canvas-wrapper")
+  var cv = c.getContext("2d");
+  c.width  = d.width;
+  c.height = d.height;
+  cv.fillStyle = "white";
+  cv.fillRect(0, 0, c.width, c.height);
   // you try the rest XD
 }
+draw();
 
 // Build Level //
 function randomizelevel() {
     var max = 360;
     var min = 0;
     if(levelcounter < 2) {
-        var max = 10
-        var min = 0
-        points.pt1 = (Math.random() * (max - min) + min);
-        points.pt2 = (Math.random() * (max - min) + min);
-        points.pt3 = (Math.random() * (max - min) + min);
-        points.pt4 = (Math.random() * (max - min) + min);
+        points.pt1 = random(min, max, points.pt1);
+        points.pt2 = random(min, max, points.pt2);
+        points.pt3 = random(min, max, points.pt3);
+        points.pt4 = random(min, max, points.pt4);
     } if(levelcounter > 4) {
-        var max = 40
-        var min = 0
-        points.pt1 = (Math.random() * (max - min) + min);
-        points.pt2 = (Math.random() * (max - min) + min);
-        points.pt3 = (Math.random() * (max - min) + min);
-        points.pt4 = (Math.random() * (max - min) + min);
-        points.pt5 = (Math.random() * (max - min) + min);
-        points.pt6 = (Math.random() * (max - min) + min);
+        var max = 40;
+        var min = 0;
+        points.pt1 = random(min, max, points.pt1);
+        points.pt2 = random(min, max, points.pt2);
+        points.pt3 = random(min, max, points.pt3);
+        points.pt4 = random(min, max, points.pt4);
+        points.pt5 = random(min, max, points.pt5);
+        points.pt6 = random(min, max, points.pt6);
     }  if(levelcounter > 10) {
-        var max = 90
-        var min = 0
-        points.pt1 = (Math.random() * (max - min) + min);
-        points.pt2 = (Math.random() * (max - min) + min);
-        points.pt3 = (Math.random() * (max - min) + min);
-        points.pt4 = (Math.random() * (max - min) + min);
-        points.pt5 = (Math.random() * (max - min) + min);
-        points.pt6 = (Math.random() * (max - min) + min);
-        points.pt7 = (Math.random() * (max - min) + min);
-        points.pt8 = (Math.random() * (max - min) + min);
+        var max = 90;
+        var min = 0;
+        points.pt1 = random(min, max, points.pt1);
+        points.pt2 = random(min, max, points.pt2);
+        points.pt3 = random(min, max, points.pt3);
+        points.pt4 = random(min, max, points.pt4);
+        points.pt5 = random(min, max, points.pt5);
+        points.pt6 = random(min, max, points.pt6);
+        points.pt7 = random(min, max, points.pt7);
+        points.pt8 = random(min, max, points.pt8);
     }
 }
 

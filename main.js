@@ -22,17 +22,23 @@ function random(min, max, pt) {
 }
 
 // Build Background //
+var c = document.getElementById("mainGame");
+var d = document.getElementById("canvas-wrapper");
+function resizeCanvas() {
+    c.width = window.innerWidth;
+    c.height = window.innerHeight;
+}
 function draw() {
-  var c = getElementById("mainGame");
-  var d = getElementById("canvas-wrapper")
-  var cv = c.getContext("2d");
-  c.width  = d.width;
-  c.height = d.height;
-  cv.fillStyle = "white";
-  cv.fillRect(0, 0, c.width, c.height);
-  // you try the rest XD
+  if (c.getContext) {
+    ctx = c.getContext("2d");
+    window.addEventListener('resize', resizeCanvas, false);
+    window.addEventListener('orientationchange', resizeCanvas, false);
+    resizeCanvas();
+  }
 }
 draw();
+c.style.background = "black";
+// you try the rest XD
 
 // Build Level //
 function randomizelevel() {

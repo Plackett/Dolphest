@@ -15,8 +15,9 @@ var points = {
     pt8: 0,
 }
 var levelcounter = 1;
-var max = 10
-var min = 0
+var max = 10;
+var min = 0;
+var type = 1;
 function random(min, max, pt) {
 	pt = (Math.random() * (max - min) + min);
 }
@@ -24,6 +25,7 @@ function random(min, max, pt) {
 // Build Background //
 var c = document.getElementById("mainGame");
 var d = document.getElementById("canvas-wrapper");
+var cv = c.getContext("2d");
 function resizeCanvas() {
     c.width = window.innerWidth;
     c.height = window.innerHeight;
@@ -83,6 +85,14 @@ function clearlevel() {
     points.pt8 = 0;
 }
 
+function buildlevel() {
+    var min = 1;
+    var max = 4;
+    var img1 = new Image;
+    img1.src = (menv + "/plume" + random(type, min, max));
+    cv.drawImage(img1, 10, 10);
+}
+buildlevel();
 // Game Loop //
 
 // somehow randomly spawn enemies with velocities going up between each point and also allow player to move from point to point using the pt variables for angle of rotation and just using offset off from the walls to determine position. Also shooting and death if lives reach 0 and lives are lowered by hitting enemies and perhaps raised by collecting some sort of powerup.
